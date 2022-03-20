@@ -2,9 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import './components/NavBar.js';
 import NavBar from './components/NavBar.js';
-import Test from './components/Test.js';
-import './components/Test.js';
+import Footer from './components/Footer.js';
 import ItemListContainer from './components/ItemListContainer';
+import SandBox from './components/SandBox.js';
+
+
+
 
 
 function App() {
@@ -15,8 +18,10 @@ function App() {
   return (
     <div className="App">
       <NavBar/>
+      <SandBox/>
       <ItemListContainer/>
-      <Test nombre='javier' apellido = { apellido } />   
+      <Footer nombre='javier' apellido = { apellido } />
+
     </div>
   );
 };

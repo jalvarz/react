@@ -1,5 +1,5 @@
 
-const Test = ({nombre, apellido}) =>{
+const Footer = ({nombre, apellido}) =>{
   console.log("se ejecuta footer");
     return(
         <footer className="page-footer font-small blue fixed-bottom">
@@ -9,4 +9,4 @@ const Test = ({nombre, apellido}) =>{
     )
 };
 
-export default Test;
+export default Footer;
