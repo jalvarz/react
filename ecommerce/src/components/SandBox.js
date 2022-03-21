@@ -39,6 +39,7 @@ task
 */
 
 //Ejercicio MAP
+/*
 
 const users = [
     {id: 1, name: 'coder'},
@@ -53,10 +54,16 @@ return(
     <ul>
     {users.map(u=> <li key={u.id}> {u.name} </li>)}    
     </ul>
+    )
+    ;
+    
+    
+    */
+return(
+    <div>
+        
+    </div>
 )
-;
-
-
 }
 
 export default SandBox;
