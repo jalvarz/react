@@ -5,8 +5,9 @@ import ItemList from "./ItemList";
 import { Firestore } from "firebase/firestore";
 
 import { doc,getDocs,collection, getDoc, getFirestore, QuerySnapshot } from 'firebase/firestore'
-function ItemListContainer()
+function ItemDetailContainer(data)
 {
+    console.log(data);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
@@ -29,7 +30,7 @@ function ItemListContainer()
     console.log(products)
 },[]);
 
-    console.log("se ejecuta ItemListContainer")
+    console.log("se ejecuta ItemDetailContainer")
 
     return(
         <div>
@@ -40,4 +41,4 @@ function ItemListContainer()
 };
 
 
-export default ItemListContainer;
+export default ItemDetailContainer;

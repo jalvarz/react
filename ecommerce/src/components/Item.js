@@ -1,9 +1,11 @@
 import React from "react";
 import ItemCount from "./ItemCount";
 
+
 const Item = ({id,title, description,price,pictureURL}) =>
     {
  
+
     //    <ItemCount stock={10} initial={4}></ItemCount>
 
     return (

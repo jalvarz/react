@@ -32,7 +32,7 @@ function NavBar() {
       
     <input className="form-control mr-sm-2" type="text" placeholder="Search"/>
     <button className="btn btn-success" type="submit">Search</button>
-    <CartWidget cant = {0}/>
+    <CartWidget />
   </form>
 
     </ul>
