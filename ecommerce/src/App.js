@@ -31,7 +31,7 @@ function App() {
           <NavBar/>
           <SandBox/>
           <Routes>
-            <Route path='/detalle/:detalleId' element={<ItemDetail greeting='soy ItemDetailContainer'/>}/>
+            <Route path='/item/:detalleId' element={<ItemDetailContainer greeting='soy ItemDetailContainer'/>}/>
             <Route path='/' element={<ItemListContainer greeting='soy ItemListContainer'/>}/>
             <Route path='/*' element={<Navigate to = '/' replace />}/>
           </Routes>

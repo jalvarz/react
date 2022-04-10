@@ -22,23 +22,38 @@ const ItemDetail = ({producto}) =>{
     const price = 3
 
   
+
     useEffect(() => {
-        setLoading(true);
+        let isSubscribed = true;
         const db = getFirestore();
-  
-        const itemsCollection = collection(db,'items');
-        getDocs(itemsCollection).then((snapshot)=>{
-            if (snapshot.size===0){
-                console.log("no results");
-
+        const itemCollection = db.collection("items");
+        const item = itemCollection.getDoc(detalleId);
+    
+        item
+          .get()
+          .then((doc) => {
+            if (!doc.exists) {
+              console.log("Item does not exist!");
+              return;
             }
-            setProduct(snapshot.docs.map((doc)=>({id:doc.id, ...doc.data()})));
-
-        });
+            if (isSubscribed) {
+              console.log("Item found!");
+              setProduct({ id: doc.id, ...doc.data() });
+            }
+          })
+          .catch((error) => {
+            console.log("Error searching items", error);
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+    
+        return () => (isSubscribed = false);
+      }, [detalleId]);
 
     console.log(product)
 
-},[]);
+
 
 
     return(

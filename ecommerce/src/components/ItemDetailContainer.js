@@ -1,41 +1,56 @@
-import ItemCount from "./ItemCount";
-import Item from './Item';
-import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import { Firestore } from "firebase/firestore";
 
-import { doc,getDocs,collection, getDoc, getFirestore, QuerySnapshot } from 'firebase/firestore'
+import { useEffect, useState } from "react";
+import { doc, getDoc, getFirestore } from 'firebase/firestore'
+import { useParams } from "react-router-dom";
 function ItemDetailContainer(data)
 {
-    console.log(data);
-    const [products, setProducts] = useState([]);
+    console.log("se ejecuta itemlistcontainer")
+    const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
+    const {detalleId} = useParams();
 
-
-  
     useEffect(() => {
         setLoading(true);
         const db = getFirestore();
-  
-        const itemsCollection = collection(db,'items');
-        getDocs(itemsCollection).then((snapshot)=>{
-            if (snapshot.size===0){
-                console.log("no results");
+        const item = doc(db, 'items', detalleId);
 
+        getDoc(item).then((snapshot)=>{
+            if (snapshot.exists()){
+                setProduct({id: snapshot.id, ...snapshot.data() });
             }
-            setProducts(snapshot.docs.map((doc)=>({id:doc.id, ...doc.data()})));
-
-        });
-
-    console.log(products)
-},[]);
+            })
+        .catch((error) => {
+            console.log("error recuperando datos")
+            });
+        console.log(product)
+        },[detalleId]);
 
     console.log("se ejecuta ItemDetailContainer")
 
     return(
         <div>
-        <h3>Catalogo de productos</h3>
-        <ItemList/>
+            <h3>Detalle de Producto</h3>
+            <div className="container">
+                <div className="card">
+                    <div className="container-fliud">
+                        <div className="wrapper row">
+                            <div className="preview col-md-6">
+                                <div className="preview-pic tab-content">
+                                <div className="tab-pane active" id="pic-1"><img src={product.ImageID} /></div>
+                                </div> 
+                            </div>
+                            <div className="details col-md-6">
+                                <h3 className="product-title">{product.title}</h3>
+                                <p className="product-description">{product.descriptionExtended}</p>
+                                <h4 className="price">Precio: <span>{product.price}</span></h4>
+                                <div className="action">
+                                    <button className="add-to-cart btn btn-default" type="button">add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

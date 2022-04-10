@@ -7,7 +7,7 @@ function NavBar() {
 
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top ">
 
-    <a className="navbar-brand" href="#">Logo</a>
+    <a className="navbar-brand" href="\">Logo</a>
   
 
     <ul className="navbar-nav">
