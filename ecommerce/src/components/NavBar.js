@@ -1,7 +1,8 @@
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 function NavBar() {
-    console.log("se Ejecuta Navbar");
+   // console.log("se Ejecuta Navbar");
     return (
     <div>
 
@@ -12,10 +13,11 @@ function NavBar() {
 
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link" href="#">Link 1</a>
+        <a className="nav-link" href="#">Productos</a>
+        <Link to={'/categoryId/productos}'}>Productos </Link>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Link 2</a>
+        <a className="nav-link" href="#">Servicios</a>
       </li>
       
       <li className="nav-item dropdown">

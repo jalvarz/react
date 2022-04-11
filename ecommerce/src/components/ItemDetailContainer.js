@@ -1,4 +1,6 @@
 
+
+
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { useParams } from "react-router-dom";
@@ -21,14 +23,25 @@ function ItemDetailContainer(data)
             })
         .catch((error) => {
             console.log("error recuperando datos")
-            });
-        console.log(product)
+            })
+    
+
+        .finally(() => {
+            setLoading(false);
+        })
         },[detalleId]);
 
     console.log("se ejecuta ItemDetailContainer")
 
     return(
-        <div>
+    <div>
+
+            {loading ? (
+                <div className="loading-items">
+        <h1>Cargando productos... </h1>
+      </div>
+         ) : (       
+             <div>         
             <h3>Detalle de Producto</h3>
             <div className="container">
                 <div className="card">
@@ -52,7 +65,10 @@ function ItemDetailContainer(data)
                 </div>
             </div>
         </div>
-    );
+         )}
+    </div>
+   
+   );
 };
 
 

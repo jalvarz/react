@@ -1,5 +1,5 @@
 const SandBox = ({nombre, apellido}) =>{
-console.log("se ejecuto sandbox");
+//console.log("se ejecuto sandbox");
 /*
 // Ejercicio Promises
 const task = new Promise((resolve,reject) => {

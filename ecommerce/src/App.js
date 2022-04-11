@@ -22,7 +22,7 @@ function App() {
 
 
   const apellido='Alvarez';
-  console.log("se ejecuta app.js");
+ // console.log("se ejecuta app.js");
   
   return (
     <BrowserRouter>
@@ -32,6 +32,7 @@ function App() {
           <SandBox/>
           <Routes>
             <Route path='/item/:detalleId' element={<ItemDetailContainer greeting='soy ItemDetailContainer'/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer category =' soy category' />}/>
             <Route path='/' element={<ItemListContainer greeting='soy ItemListContainer'/>}/>
             <Route path='/*' element={<Navigate to = '/' replace />}/>
           </Routes>
