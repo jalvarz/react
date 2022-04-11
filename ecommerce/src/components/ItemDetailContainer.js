@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 function ItemDetailContainer(data)
 
 {
- //   console.log("se ejecuta itemlistcontainer")
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const {detalleId} = useParams();
@@ -22,8 +21,6 @@ function ItemDetailContainer(data)
         .catch((error) => {
             console.log("error recuperando datos")
             })
-    
-
         .finally(() => {
             setLoading(false);
         })
@@ -31,12 +28,12 @@ function ItemDetailContainer(data)
 
     return(
     <div>
-            {loading ? (
-                <div className="loading-items">
-        <h1>Cargando productos... </h1>
-      </div>
+        {loading ? (
+            <div className="loading-items">
+                <h1>Cargando productos... </h1>
+            </div>
          ) : (       
-             <div>         
+        <div>         
             <h3>Detalle de Producto</h3>
             <div className="container">
                 <div className="card">
@@ -44,7 +41,7 @@ function ItemDetailContainer(data)
                         <div className="wrapper row">
                             <div className="preview col-md-6">
                                 <div className="preview-pic tab-content">
-                                <div className="tab-pane active" id="pic-1"><img src={product.ImageID} /></div>
+                                    <div className="tab-pane active" id="pic-1"><img src={product.ImageID} /></div>
                                 </div> 
                             </div>
                             <div className="details col-md-6">
@@ -60,11 +57,9 @@ function ItemDetailContainer(data)
                 </div>
             </div>
         </div>
-         )}
+        )}
     </div>
-   
    );
 };
-
 
 export default ItemDetailContainer;

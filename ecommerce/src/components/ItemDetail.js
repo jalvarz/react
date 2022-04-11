@@ -1,13 +1,6 @@
 import { useParams } from "react-router-dom";
-
-
-import ItemCount from "./ItemCount";
-import Item from './Item';
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import { Firestore } from "firebase/firestore";
-
-import { doc,getDocs,collection, getDoc, getFirestore, QuerySnapshot } from 'firebase/firestore'
+import { getFirestore} from 'firebase/firestore'
 
 const ItemDetail = ({producto}) =>{
     const {detalleId} = useParams()
@@ -20,8 +13,6 @@ const ItemDetail = ({producto}) =>{
     const title='2'
     const description = 'd'
     const price = 3
-
-  
 
     useEffect(() => {
         let isSubscribed = true;
@@ -51,19 +42,13 @@ const ItemDetail = ({producto}) =>{
         return () => (isSubscribed = false);
       }, [detalleId]);
 
-    console.log(product)
-
-
-
-
     return(
         <div>
-        <img src={pictureURL} className="photo" alt="..." width={256}/>
-        <div className="card-body text-center">
-   
-            <h5 className="card-title">{title}</h5>
-            <p className="card-text">{description} precio {price}</p>    
-        </div>
+          <img src={pictureURL} className="photo" alt="..." width={256}/>
+          <div className="card-body text-center">
+              <h5 className="card-title">{title}</h5>
+              <p className="card-text">{description} precio {price}</p>    
+          </div>
         </div>
         )
     }

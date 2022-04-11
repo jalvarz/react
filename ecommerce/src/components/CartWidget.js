@@ -1,18 +1,15 @@
 import { useContext,useEffect } from "react";
 import CartContext from "../contexts/CartContext";
 
-
 function CartWidget(){
   
     const { cart, qnt, setQnt} = useContext(CartContext);
-
 
     useEffect(() => {
         if (cart.lenght === 0) {
             setQnt(0);
         }
     },[cart,setQnt]);
-
 
     return(
         <div>
