@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
    // console.log("se Ejecuta Navbar");
-    return (
-    <div>
+   return (
+     <div>
 
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top ">
 
@@ -13,11 +13,11 @@ function NavBar() {
 
     <ul className="navbar-nav">
       <li className="nav-item">
-        <a className="nav-link" href="#">Productos</a>
-        <Link to={'/categoryId/productos}'}>Productos </Link>
+        <a className="nav-link" href="/category/productos">Productos</a>
       </li>
+      
       <li className="nav-item">
-        <a className="nav-link" href="#">Servicios</a>
+        <a className="nav-link" href="/category/servicios">Servicios</a>
       </li>
       
       <li className="nav-item dropdown">

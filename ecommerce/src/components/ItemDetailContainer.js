@@ -1,12 +1,10 @@
-
-
-
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { useParams } from "react-router-dom";
 function ItemDetailContainer(data)
+
 {
-    console.log("se ejecuta itemlistcontainer")
+ //   console.log("se ejecuta itemlistcontainer")
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     const {detalleId} = useParams();
@@ -31,11 +29,8 @@ function ItemDetailContainer(data)
         })
         },[detalleId]);
 
-    console.log("se ejecuta ItemDetailContainer")
-
     return(
     <div>
-
             {loading ? (
                 <div className="loading-items">
         <h1>Cargando productos... </h1>
