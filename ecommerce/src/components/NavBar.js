@@ -25,7 +25,7 @@ function NavBar() {
           <form className="form-inline " action="/action_page.php" >
             <input className="form-control mr-sm-2" type="text" placeholder="Search"/>
             <button className="btn btn-success" type="submit">Search</button>
-            <CartWidget />
+            <CartWidget/>
           </form>
         </ul>
       </nav>

@@ -47,7 +47,9 @@ const ItemDetail = ({producto}) =>{
           <img src={pictureURL} className="photo" alt="..." width={256}/>
           <div className="card-body text-center">
               <h5 className="card-title">{title}</h5>
-              <p className="card-text">{description} precio {price}</p>    
+              <p className="card-text">{description} precio {price}</p>
+              <ItemCount/>
+                  
           </div>
         </div>
         )

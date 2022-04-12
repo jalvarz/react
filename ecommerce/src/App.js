@@ -2,6 +2,7 @@ import './App.css';
 import './components/NavBar.js';
 import NavBar from './components/NavBar.js';
 import Footer from './components/Footer.js';
+import Cart from './components/Cart';
 import ItemListContainer from './components/ItemListContainer';
 import SandBox from './components/SandBox.js';
 import { useState } from 'react';
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path='/item/:detalleId' element={<ItemDetailContainer greeting='soy ItemDetailContainer'/>}/>
             <Route path='/category/:categoryId' element={<ItemListContainer category =' soy category' />}/>
+            <Route path='/cart' element ={<Cart/> }/>
             <Route path='/' element={<ItemListContainer greeting='soy ItemListContainer'/>}/>
             <Route path='/*' element={<Navigate to = '/' replace />}/>
           </Routes>
