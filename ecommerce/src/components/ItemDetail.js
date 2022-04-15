@@ -48,6 +48,7 @@ const ItemDetail = ({producto}) =>{
           <div className="card-body text-center">
               <h5 className="card-title">{title}</h5>
               <p className="card-text">{description} precio {price}</p>
+   
               <ItemCount/>
                   
           </div>
