@@ -48,7 +48,6 @@ const CartTable = () => {
               ))}
             </tbody>
           </table>
-          <h2>Total: </h2>
         </div>
       );
 

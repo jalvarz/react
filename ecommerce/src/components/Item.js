@@ -26,8 +26,6 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
             
             console.log("se ejecuta onAdd con ",quantity,id);
               setCart((value) => [...value, product]);
-              console.log(Cart)
-             
         }
 
         return (

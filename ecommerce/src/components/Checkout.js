@@ -3,28 +3,22 @@ import CartContext from "../contexts/CartContext";
 
 const Checkout = () =>{
 const [precioTotal,setPrecioTotal] = useState(0);
-const {cart, setCart} = useContext(CartContext)
+const { cart } = useContext(CartContext)
 
     useEffect(()=>{
-        if (cart.lenght>0){
-            console.log(cart)
-        setPrecioTotal(
-            cart
+        if (cart.length > 0){
+        setPrecioTotal(cart
             .map((item) => item.price * item.quantity)
-            .reduce((total, valor) => total + valor)
-        )
-        
+            .reduce((total, valor) => total + valor))
         }
-
-    },[cart]
-    
+        },[cart]
     )
 
     return(
 <div>
-    <h5>
+    <h2>
         Total:{precioTotal}
-    </h5>
+    </h2>
 </div>
 
     );
