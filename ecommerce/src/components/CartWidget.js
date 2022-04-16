@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 function CartWidget(){
   
     const { cart, qnt, setQnt} = useContext(CartContext);
-
+    console.log(qnt)
     useEffect(() => {
         if (cart.lenght === 0) {
-            setQnt(0);
+            console.log("vacio")
+         //   setQnt(0);
         }
     },[cart,setQnt]);
 

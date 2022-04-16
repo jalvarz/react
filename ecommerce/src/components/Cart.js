@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import Checkout from "./Checkout";
 import CartContext from "../contexts/CartContext";
 import CartTable from "./CartTable";
-const Cart = ()=>{
-    
+const CartMain = ()=>{
+
     const {cart} = useContext(CartContext);
 
     return(
@@ -14,4 +14,4 @@ const Cart = ()=>{
     );
 }
 
-export default Cart
+export default CartMain

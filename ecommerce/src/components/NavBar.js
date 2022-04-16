@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 function NavBar() {
    return (
      <div>
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top ">
-        <a className="navbar-brand" href="\">Logo</a>
+        <Link className="navbar-brand" to="/">Logo</Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" href="/category/productos">Productos</a>
+            <Link className="nav-link" to="/category/productos">Productos</ Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/category/servicios">Servicios</a>
+            <Link className="nav-link" to="/category/servicios">Servicios</Link>
           </li>
           <li className="nav-item dropdown">
             <a className="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">

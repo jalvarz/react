@@ -13,7 +13,8 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
     const [quantity, setQuantity] = useState(1);
 
         const onAdd = () =>{
-            setQnt((value) => value + quantity);
+            
+            console.log("se", quantity)
             
             const product = {
                 id: id,
@@ -25,6 +26,7 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
             };
             
             console.log("se ejecuta onAdd con ",quantity,id);
+            setQnt((value) => value + quantity);
               setCart((value) => [...value, product]);
         }
 
