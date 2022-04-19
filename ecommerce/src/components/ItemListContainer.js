@@ -27,7 +27,7 @@ function ItemListContainer(data)
 },[]);
     return(
         <div>
-            <h3>Catalogo de productos</h3>
+            <h3>Catalogo {categoryId}</h3>
             <ItemList data = {products}/>
         </div>
     );

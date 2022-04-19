@@ -41,7 +41,7 @@ function ItemDetailContainer(data)
                         <div className="wrapper row">
                             <div className="preview col-md-6">
                                 <div className="preview-pic tab-content">
-                                    <div className="tab-pane active" id="pic-1"><img src={product.ImageID} /></div>
+                                    <div className="tab-pane active" id="pic-1"><img src={product.ImageID} alt='imagen'/></div>
                                 </div> 
                             </div>
                             <div className="details col-md-6">

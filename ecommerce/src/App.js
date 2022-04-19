@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route,Navigate} from 'react-router-dom';
 import CartContext from './contexts/CartContext';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Checkout from './components/Checkout';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path='/item/:detalleId' element={<ItemDetailContainer greeting='soy ItemDetailContainer'/>}/>
             <Route path='/category/:categoryId' element={<ItemListContainer category =' soy category' />}/>
             <Route path='/cart' element ={<Cart/> }/>
+            <Route path='/checkout' element ={<Checkout/> }/>
             <Route path='/' element={<ItemListContainer greeting='soy ItemListContainer'/>}/>
             <Route path='/*' element={<Navigate to = '/' replace />}/>
           </Routes>
