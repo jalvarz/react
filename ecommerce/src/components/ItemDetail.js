@@ -4,7 +4,7 @@ import { getFirestore} from 'firebase/firestore'
 
 const ItemDetail = ({producto}) =>{
     const {detalleId} = useParams()
-    console.log(detalleId);
+    //console.log(detalleId);
 
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -24,16 +24,16 @@ const ItemDetail = ({producto}) =>{
           .get()
           .then((doc) => {
             if (!doc.exists) {
-              console.log("Item does not exist!");
+              //console.log("Item does not exist!");
               return;
             }
             if (isSubscribed) {
-              console.log("Item found!");
+              //console.log("Item found!");
               setProduct({ id: doc.id, ...doc.data() });
             }
           })
           .catch((error) => {
-            console.log("Error searching items", error);
+            //console.log("Error searching items", error);
           })
           .finally(() => {
             setLoading(false);

@@ -19,7 +19,7 @@ function ItemDetailContainer(data)
             }
             })
         .catch((error) => {
-            console.log("error recuperando datos")
+            //console.log("error recuperando datos")
             })
         .finally(() => {
             setLoading(false);

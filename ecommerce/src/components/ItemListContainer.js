@@ -19,7 +19,7 @@ function ItemListContainer(data)
 
         getDocs(itemsCollection).then((snapshot)=>{
             if (snapshot.size===0){
-                console.log("no results");
+                //console.log("no results");
             }
             setProducts(snapshot.docs.map((doc)=>({id:doc.id, ...doc.data()})));
         });

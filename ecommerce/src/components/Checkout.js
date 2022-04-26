@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../contexts/CartContext";
-import { query, where, getFirestore,collection,Timestamp, doc, addDoc,documentId,writeBatch } from 'firebase/firestore'
+import { where, getFirestore,collection,Timestamp,addDoc,documentId,writeBatch } from 'firebase/firestore'
 
 
 function Field({
@@ -106,7 +106,7 @@ const Checkout = () => {
     const db = getFirestore();
 
     const orders = collection(db, "orders");
-    console.log(items)
+    //console.log(items)
     const newOrder = {
         userInfo,
         items,
@@ -121,11 +121,11 @@ const Checkout = () => {
 
     try {
       const { id } = await addDoc(orders,newOrder)
-     console.log(id)
+   //  console.log(id)
       setOrderId(id);
       clean();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
     }
     updateDataFirebase();
   }

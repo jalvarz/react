@@ -7,7 +7,7 @@ function CartWidget(){
     const { cart, qnt, setQnt} = useContext(CartContext);
     useEffect(() => {
         if (cart.lenght === 0) {
-            console.log("vacio")
+       //     console.log("vacio")
          //   setQnt(0);
         }
     },[cart,setQnt]);
