@@ -19,7 +19,7 @@ Este proyecto se trata de un E-commerce ficticio, utilizando React para el front
     alt="video mostrando el uso de la plataforma"
     with="350" 
     height="350" 
-    src="https://github.com/jalvarz/react/blob/main/ecommerce/video.wmv" 
+    src="https://github.com/jalvarz/react/blob/main/ecommerce/video.gif" 
   />
   <figcaption>Video mostrando las funcionalidades que ofrece la plataforma</figcaption>
 </figure>
