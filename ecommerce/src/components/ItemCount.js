@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState,useEffect } from "react";
 
 function ItemCount({ stock, initial,setQuantity,}) {
     const [count,setCount] = useState(initial);
@@ -14,10 +14,10 @@ function ItemCount({ stock, initial,setQuantity,}) {
             setCount(0);
         }
     }
-
     useEffect(()=>{
-       setQuantity(count);
-    },[count,setQuantity]);
+        setQuantity(count);
+     },[count,setQuantity]);
+ 
 
     return (
     <div>

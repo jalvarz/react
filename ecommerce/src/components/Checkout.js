@@ -125,7 +125,6 @@ const Checkout = () => {
       setOrderId(id);
       clean();
     } catch (err) {
-      //console.log(err);
     }
     updateDataFirebase();
   }

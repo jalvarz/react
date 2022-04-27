@@ -1,67 +1,42 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getFirestore} from 'firebase/firestore'
+import {useState,useContext} from "react";
+import ItemCount from "./ItemCount";
+import CartContext from "../contexts/CartContext";
 
-const ItemDetail = ({producto}) =>{
-    const {detalleId} = useParams()
-    const [setProduct] = useState([]);
-    const [loading, setLoading] = useState(false);
+const ItemDetail = (product) =>{
     
-    const pictureURL= '2'
-    const title='2'
-    const description = 'd'
-    const price = 3
+const { cart, setCart, setQnt } = useContext(CartContext);
+const [quantity, setQuantity] = useState(1);
+const onAdd = () =>{
+        
+  setQnt((value) => value + quantity);
 
-    useEffect(() => {
-        setLoading(true);
-        let isSubscribed = true;
-        const db = getFirestore();
-        const itemCollection = db.collection("items");
-        const item = itemCollection.getDoc(detalleId);
-    
-        item
-          .get()
-          .then((doc) => {
-            if (!doc.exists) {
-              return;
-            }
-            if (isSubscribed) {
-              setProduct({ id: doc.id, ...doc.data() });
-            }
-          })
-          .catch((error) => {
-            //console.log("Error searching items", error);
-          })
-          .finally(() => {
-            setLoading(false);
-         //   console.log("cargado")
-          });
-    
-
-      }, [detalleId]);
+  const isInCart = cart.find(prod => prod.id === product.product.id);
+  if (isInCart){
+      let cartTemporal = [...cart]
+      for (var i in cartTemporal) {
+          if (cartTemporal[i].id ===  product.product.id) {
+              cartTemporal[i].quantity = cartTemporal[i].quantity+ quantity;
+              break; 
+          }
+      }
+      setCart(cartTemporal);    
+  }else{
+      setCart((value) => [...value, product]);
+  }
+}
 
     return(
-      <div>
-            {loading ? (
-                <div className="loading-items">
-                    <h1>Cargando productos... </h1>
-                </div>
-    
-             ) : (       
-            <div>
+        <div className="details col-md-6">
+        <h3 className="product-title">{product.product.title}</h3>
+        <p className="product-description">{product.product.descriptionExtended}</p>
+        <h4 className="price">Precio: <span>{product.product.price}</span></h4>
+        <div className="action">
 
-          <img src={pictureURL} className="photo" alt="..." width={256}/>
-          <div className="card-body text-center">
-              <h5 className="card-title">{title}</h5>
-              <p className="card-text">{description} precio {price}</p>
-   
-              <ItemCount/>
-                  
-          </div>
-       
+        <ItemCount stock ={product.product.stock} initial ={1} id={product.product.id} setQuantity={setQuantity}/>
+            <button className="add-to-cart btn btn-default" type="button" onClick={onAdd}>Agregar al carrito</button>
         </div>
-        )}
-      </div>
-)}
+    </div>
+    )
+  }
 
     export default ItemDetail

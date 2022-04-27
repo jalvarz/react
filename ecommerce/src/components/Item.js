@@ -6,10 +6,12 @@ import CartContext from "../contexts/CartContext";
 
 const Item = ({id,title,description,price,pictureURL,stock}) =>
 {
-    const { setCart, setQnt } = useContext(CartContext);
-    const [quantity, setQuantity] = useState(1);
+    const { cart, setCart, setQnt } = useContext(CartContext);
+    const [quantity, setQuantity] = useState(0);
 
         const onAdd = () =>{
+        
+            setQnt((value) => value + quantity);
             const product = {
                 id: id,
                 titile: title,
@@ -18,9 +20,20 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
                 pictureURL: pictureURL,
                 quantity:quantity
             };
-            
-            setQnt((value) => value + quantity);
-            setCart((value) => [...value, product]);
+
+            const isInCart = cart.find(prod => prod.id === id);
+            if (isInCart){
+                let cartTemporal = [...cart]
+                for (var i in cartTemporal) {
+                    if (cartTemporal[i].id ===  id) {
+                        cartTemporal[i].quantity = cartTemporal[i].quantity+ quantity;
+                        break; 
+                    }
+                }
+                setCart(cartTemporal);    
+            }else{
+                setCart((value) => [...value, product]);
+            }
         }
 
         return (
@@ -35,7 +48,6 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
                 </div>
             </div>
         );
-
 };
 
 export default Item;

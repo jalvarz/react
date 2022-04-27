@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { doc, getDoc, getFirestore } from 'firebase/firestore'
 import { useParams } from "react-router-dom";
+import ItemDetail from "./ItemDetail"
+
 function ItemDetailContainer(data)
 
 {
@@ -45,14 +47,7 @@ function ItemDetailContainer(data)
                                     <div className="tab-pane active" id="pic-1"><img src={product.ImageID} alt='imagen'/></div>
                                 </div> 
                             </div>
-                            <div className="details col-md-6">
-                                <h3 className="product-title">{product.title}</h3>
-                                <p className="product-description">{product.descriptionExtended}</p>
-                                <h4 className="price">Precio: <span>{product.price}</span></h4>
-                                <div className="action">
-                                    <button className="add-to-cart btn btn-default" type="button">add to cart</button>
-                                </div>
-                            </div>
+                            <ItemDetail product={product} />
                         </div>
                     </div>
                 </div>
