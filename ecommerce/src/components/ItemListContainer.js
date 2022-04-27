@@ -7,7 +7,7 @@ function ItemListContainer(category)
 
 
     const [products, setProducts] = useState([]);
-    const [setLoading] = useState(false);
+    const [loading, setLoading] = useState(false);
     const {categoryId} = useParams();
 
 
@@ -27,16 +27,26 @@ function ItemListContainer(category)
                 //console.log("no results");
             }
             setProducts(snapshot.docs.map((doc)=>({id:doc.id, ...doc.data()})));
-        });
-
+        }
+        )
+        .finally(() => {
+            setLoading(false);
+        })
 
 },[categoryId]);
-    return(
+return(
+    <div>
+        {loading ? (
+            <div className="loading-items">
+            <h1>Cargando productos... </h1>
+        </div>
+    ):(
         <div>
             <h3>Catalogo {categoryId}</h3>
             <ItemList data = {products}/>
         </div>
-    );
+    )}
+    </div>)
 };
 
 export default ItemListContainer;

@@ -10,7 +10,6 @@ const Item = ({id,title,description,price,pictureURL,stock}) =>
     const [quantity, setQuantity] = useState(1);
 
         const onAdd = () =>{
-            
             const product = {
                 id: id,
                 titile: title,

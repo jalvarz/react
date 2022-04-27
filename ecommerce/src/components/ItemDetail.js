@@ -4,7 +4,7 @@ import { getFirestore} from 'firebase/firestore'
 
 const ItemDetail = ({producto}) =>{
     const {detalleId} = useParams()
-    const [product, setProduct] = useState([]);
+    const [setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     
     const pictureURL= '2'

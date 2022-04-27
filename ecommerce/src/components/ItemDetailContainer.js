@@ -6,12 +6,12 @@ function ItemDetailContainer(data)
 {
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
-    const {detalleId} = useParams();
+    const {detailId} = useParams();
 
     useEffect(() => {
         setLoading(true);
         const db = getFirestore();
-        const item = doc(db, 'items', detalleId);
+        const item = doc(db, 'items', detailId);
 
         getDoc(item).then((snapshot)=>{
             if (snapshot.exists()){
@@ -19,12 +19,12 @@ function ItemDetailContainer(data)
             }
             })
         .catch((error) => {
-            //console.log("error recuperando datos")
+            console.log("error recuperando datos")
             })
         .finally(() => {
             setLoading(false);
         })
-        },[detalleId]);
+        },[detailId]);
 
         
     return(

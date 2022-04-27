@@ -1,7 +1,0 @@
-entrega 7 ok.
-entrega 8 ok.
-entrega 9 ok.
-entraga 10: cartcontext. agregar logica para no meter cosas repetidas. meter un clear cart tambien
-entrega 11. faltan algunas cosas
-entrega 12. ok
-entrega 13. no esta
