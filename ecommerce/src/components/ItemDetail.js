@@ -4,8 +4,6 @@ import { getFirestore} from 'firebase/firestore'
 
 const ItemDetail = ({producto}) =>{
     const {detalleId} = useParams()
-    //console.log(detalleId);
-
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(false);
     
@@ -15,6 +13,7 @@ const ItemDetail = ({producto}) =>{
     const price = 3
 
     useEffect(() => {
+        setLoading(true);
         let isSubscribed = true;
         const db = getFirestore();
         const itemCollection = db.collection("items");
@@ -24,11 +23,9 @@ const ItemDetail = ({producto}) =>{
           .get()
           .then((doc) => {
             if (!doc.exists) {
-              //console.log("Item does not exist!");
               return;
             }
             if (isSubscribed) {
-              //console.log("Item found!");
               setProduct({ id: doc.id, ...doc.data() });
             }
           })
@@ -37,13 +34,22 @@ const ItemDetail = ({producto}) =>{
           })
           .finally(() => {
             setLoading(false);
+         //   console.log("cargado")
           });
     
-        return () => (isSubscribed = false);
+
       }, [detalleId]);
 
     return(
-        <div>
+      <div>
+            {loading ? (
+                <div className="loading-items">
+                    <h1>Cargando productos... </h1>
+                </div>
+    
+             ) : (       
+            <div>
+
           <img src={pictureURL} className="photo" alt="..." width={256}/>
           <div className="card-body text-center">
               <h5 className="card-title">{title}</h5>
@@ -52,8 +58,10 @@ const ItemDetail = ({producto}) =>{
               <ItemCount/>
                   
           </div>
+       
         </div>
-        )
-    }
+        )}
+      </div>
+)}
 
     export default ItemDetail

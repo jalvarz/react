@@ -28,7 +28,7 @@ function App() {
             <Route path='/category/:categoryId' element={<ItemListContainer category =' soy category' />}/>
             <Route path='/cart' element ={<Cart/> }/>
             <Route path='/checkout' element ={<Checkout/> }/>
-            <Route path='/' element={<ItemListContainer greeting='soy ItemListContainer'/>}/>
+            <Route path='/' element={<ItemListContainer category='all'/>}/>
             <Route path='/*' element={<Navigate to = '/' replace />}/>
           </Routes>
           <Footer nombre='javier' apellido = { apellido } />

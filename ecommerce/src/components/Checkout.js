@@ -41,7 +41,7 @@ function Field({
 }
 
 const Checkout = () => {
-  const { cart, setCart, setQnt } = useContext(CartContext);
+  const {cart, setCart, setQnt } = useContext(CartContext);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -62,15 +62,16 @@ const Checkout = () => {
     const db = getFirestore();
     const batch = writeBatch(db);
 
-    const itemsToUpdate = query(collection(db,"items"), where(
-      
+    var query =[]
+    var itemsToUpdate=[]
+    query = await itemsToUpdate.get();
+    
+    itemsToUpdate = query(collection(db,"items"), where(
       documentId(),
       "in",
       cart.map((i) => i.id)
-    ));
-    
-    const query = await itemsToUpdate.get();
-
+      ));
+      
     const outOfStock = [];
     query.docs.forEach((docSnapShot, idx) => {
         if (docSnapShot.data().stock >= cart[idx].quantity) {
@@ -106,7 +107,7 @@ const Checkout = () => {
     const db = getFirestore();
 
     const orders = collection(db, "orders");
-    //console.log(items)
+
     const newOrder = {
         userInfo,
         items,
@@ -121,7 +122,6 @@ const Checkout = () => {
 
     try {
       const { id } = await addDoc(orders,newOrder)
-   //  console.log(id)
       setOrderId(id);
       clean();
     } catch (err) {

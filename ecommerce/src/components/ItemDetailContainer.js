@@ -26,6 +26,7 @@ function ItemDetailContainer(data)
         })
         },[detalleId]);
 
+        
     return(
     <div>
         {loading ? (
